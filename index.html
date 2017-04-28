@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+
+</head>
+<body>
+	<div class = "row topRow">
+		<div class = "col-lg-12 pageTitle">
+			<h1>Hangman, Yo!</h1>
+			
+		</div>
+		<div class = "row guessBoxes">
+			<div class = "col-lg-6 wrongGuessBox">
+				<h3>Letters you've guessed wrong</h3>
+				<p id = "wrongGuesses">This is a placeholder</p>
+			</div>
+			<div class = "col-lg-6 rightGuessBox">
+				<h3>Letters you've guessed right</h3>
+				<p id = "rightGuesses">This is a placeholder</p>
+			</div>
+		</div>
+		<div class = "row guessCounter">
+			<div class = "row col-lg-6 mostRecent">
+				<p id = "justGuessed">Your most recent guess is: </p>
+			</div>
+			<div class = "row col-lg-6 mostRecent">
+				<p id = "guessCountdown">Number of wrong guesses left: </p>
+			</div>
+		</div>	
+		<div class = "row imageHolder">
+			<div class = "col-lg-12 images">
+				<p id = "activeImage">
+					<img src="images/start of game.png">
+				</p>
+			</div>			
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var wordToGuess;
+		var wrongGuesses = [" "];
+		var rightGuesses = [" "];
+		var justGuessed;
+		var wrongGuessCounter = 0;
+		var images = ["images/1 wrong.png", "images/2 wrong.png", "images/3 wrong.png", "images/4 wrong.png", "images/5 wrong.png", "images/6 wrong.png"];
+
+		function keyFunction () {
+			justGuessed = document.getElementById("justGuessed").on("keyup")
+			var x = event.keyup; justGuessed=x;
+		}
+		
+console.log(x)
+
+
+	</script>
+
+</body>
+</html>var createImage = function(src, title) {
+  var img   = new Image();
+  img.src   = src;
+  img.alt   = title;
+  img.title = title;
+  return img; 
+};
