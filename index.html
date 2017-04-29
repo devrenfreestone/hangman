@@ -17,17 +17,14 @@
 		<div class = "row guessBoxes">
 			<div class = "col-lg-6 wrongGuessBox">
 				<h3>Letters you've guessed wrong</h3>
-				<p id = "wrongGuesses">This is a placeholder</p>
+				<p id = "wrongGuesses"></p>
 			</div>
-			<div class = "col-lg-6 rightGuessBox">
-				<h3>Letters you've guessed right</h3>
-				<p id = "rightGuesses">This is a placeholder</p>
+			<div class = "row col-lg-6 mostRecent">
+				<p>Type your guess: <input  id = "justGuessed" type = text></p>
 			</div>
 		</div>
 		<div class = "row guessCounter">
-			<div class = "row col-lg-6 mostRecent">
-				<p id = "justGuessed"><input type = text></p>
-			</div>
+			
 			<div class = "row col-lg-6 mostRecent">
 				<p id = "guessCountdown">
 					
@@ -36,8 +33,8 @@
 		</div>	
 		<div class = "row imageHolder">
 			<div class = "col-lg-12 images">
-				<p id = "activeImage">
-					<img src="images/start of game.png">
+				<p>
+					<img id = "activeImage" src="images/start of game.png">
 				</p>
 			</div>			
 		</div>
@@ -45,20 +42,36 @@
 
 	<script type="text/javascript">
 		var wordToGuess;
-		var wrongGuesses = [" "];
-		var rightGuesses = [" "];
+		var wrongGuesses = document.getElementById("wrongGuesses");
 		var justGuessed = document.getElementById("justGuessed");
-		var wrongGuessCounter = 0;
-		var images = ["images/1 wrong.png", "images/2 wrong.png", "images/3 wrong.png", "images/4 wrong.png", "images/5 wrong.png", "images/6 wrong.png"];
+		var wrongGuessCounter = 6;
+		var activeImage = document.getElementById("activeImage")
+		var images = ["images/start of game.png", "images/1 wrong.png", "images/2 wrong.png", "images/3 wrong.png", "images/4 wrong.png", "images/5 wrong.png", "images/6 wrong.png"];
 
-		justGuessed.addEventListener("onkeyup", keypress);
+		wordToGuess = prompt("What word should your friend guess?")
+
+		justGuessed.addEventListener("keyup", keypress);
 
 		function keypress(){
-			var x = justGuessed.value; justGuessed.innerHTML = x;
-			console.log(justGuessed);
-		}
-		 
-		
+			justGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+			if (wordToGuess.includes(justGuessed)){
+			alert("You guessed a letter right!");
+			console.log(justGuessed);}
+			else  {
+				wrongGuesses.append(justGuessed);
+				wrongGuessCounter = wrongGuessCounter-1;
+				var i = 0; i++;
+				
+				function imageChange(activeImage){
+					document.getElementById("activeImage").src = images[i];
+				};
+				
+				alert("You have: " + wrongGuessCounter + " guesses left");
+				console.log(wrongGuesses);
+				console.log(activeImage);
+				console.log(i);
+			}
+		};
 	
 
 	</script>
