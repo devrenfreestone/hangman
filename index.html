@@ -26,10 +26,12 @@
 		</div>
 		<div class = "row guessCounter">
 			<div class = "row col-lg-6 mostRecent">
-				<p id = "justGuessed">Your most recent guess is: </p>
+				<p id = "justGuessed"><input type = text></p>
 			</div>
 			<div class = "row col-lg-6 mostRecent">
-				<p id = "guessCountdown">Number of wrong guesses left: </p>
+				<p id = "guessCountdown">
+					
+				</p>
 			</div>
 		</div>	
 		<div class = "row imageHolder">
@@ -45,25 +47,21 @@
 		var wordToGuess;
 		var wrongGuesses = [" "];
 		var rightGuesses = [" "];
-		var justGuessed;
+		var justGuessed = document.getElementById("justGuessed");
 		var wrongGuessCounter = 0;
 		var images = ["images/1 wrong.png", "images/2 wrong.png", "images/3 wrong.png", "images/4 wrong.png", "images/5 wrong.png", "images/6 wrong.png"];
 
-		function keyFunction () {
-			justGuessed = document.getElementById("justGuessed").on("keyup")
-			var x = event.keyup; justGuessed=x;
-		}
-		
-console.log(x)
+		justGuessed.addEventListener("onkeyup", keypress);
 
+		function keypress(){
+			var x = justGuessed.value; justGuessed.innerHTML = x;
+			console.log(justGuessed);
+		}
+		 
+		
+	
 
 	</script>
 
 </body>
-</html>var createImage = function(src, title) {
-  var img   = new Image();
-  img.src   = src;
-  img.alt   = title;
-  img.title = title;
-  return img; 
-};
+</html>
