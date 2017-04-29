@@ -34,7 +34,7 @@
 		<div class = "row imageHolder">
 			<div class = "col-lg-12 images">
 				<p>
-					<img id = "activeImage" src="images/start of game.png">
+					<img id = "activeImage" src="images/startofgame.png">
 				</p>
 			</div>			
 		</div>
@@ -46,11 +46,13 @@
 		var justGuessed = document.getElementById("justGuessed");
 		var wrongGuessCounter = 6;
 		var activeImage = document.getElementById("activeImage")
-		var images = ["images/start of game.png", "images/1 wrong.png", "images/2 wrong.png", "images/3 wrong.png", "images/4 wrong.png", "images/5 wrong.png", "images/6 wrong.png"];
+		var images = ["images/startofgame.png", "images/1wrong.png", "images/2wrong.png", "images/3wrong.png", "images/4wrong.png", "images/5wrong.png", "images/6wrong.png"];
 
 		wordToGuess = prompt("What word should your friend guess?")
 
 		justGuessed.addEventListener("keyup", keypress);
+
+
 
 		function keypress(){
 			justGuessed = String.fromCharCode(event.keyCode).toLowerCase();
@@ -62,8 +64,12 @@
 				wrongGuessCounter = wrongGuessCounter-1;
 				var i = 0; i++;
 				
+				for (var i; i < images.length; i++) {
+					images[i]
+				}
+
 				function imageChange(activeImage){
-					document.getElementById("activeImage").src = images[i];
+					document.getElementById("activeImage").src = images.[i];
 				};
 				
 				alert("You have: " + wrongGuessCounter + " guesses left");
